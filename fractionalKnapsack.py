@@ -1,5 +1,5 @@
 def fractionalKnapsack(W, arr):
-    arr.sort(key=lambda x: (x[1]/x[0]), reverse=True)
+    arr.sort(key=lambda x: (x[0]/x[1]), reverse=True)
     finalvalue = 0.0
     for item in arr:
         if item[1] <= W:
@@ -15,5 +15,3 @@ arr = [(3, 1), (2, 2), (1, 3)]
 
 max_val = fractionalKnapsack(W, arr)
 print(max_val)
-
-# [1,3],[2,2],[3,1]
