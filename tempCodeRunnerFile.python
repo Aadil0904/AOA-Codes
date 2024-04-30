@@ -1,19 +1,17 @@
-def fractionalKnapsack(W, arr):
-    arr.sort(key=lambda x: (x[1]/x[0]), reverse=True)
-    finalvalue = 0.0
-    for item in arr:
-        if item[1] <= W:
-            W -= item[1]
-            finalvalue += item[0]
-        else:
-            finalvalue += item[0] * W / item[1]
-            break
-    return finalvalue
+def fractionalKnapsack(W,arr):
+  arr.sort(key=lambda x: (x[0]/x[1]),reverse = True)
+  finalValue = 0.0
+  for item in arr:
+    if item[1] < W:
+      W -= item[1]
+      finalValue+= item[0]
+    else:
+      finalValue+= item[0]* W/item[1]
+  
+  return finalValue
 
-W = 4
-arr = [(3, 1), (2, 2), (1, 3)]
+W = 35
+arr = [(80, 20), (120, 15), (100, 10)]
 
 max_val = fractionalKnapsack(W, arr)
 print(max_val)
-
-# [1,3],[2,2],[3,1]
